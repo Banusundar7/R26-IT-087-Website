@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PomeGuard – An Integrated Smart System for Pomegranate Cultivation. SLIIT Research Project."
+    />
+    <title>
+      PomeGuard – Integrated Smart System for Pomegranate Cultivation
+    </title>
+    <link rel="icon" href="assets/images/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER / NAVIGATION ================= -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#home" class="brand">
+          <img src="assets/images/logo.svg" alt="PomeGuard logo" />
+          <span>Pome<b>Guard</b></span>
+        </a>
+
+        <!-- Mobile menu toggle (pure CSS, no JavaScript) -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-burger" aria-label="Open menu"
+          ><span></span
+        ></label>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#domain">Domain</a></li>
+            <li><a href="#milestones">Milestones</a></li>
+            <li><a href="#documents">Documents</a></li>
+            <li><a href="#presentations">Presentations</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================= HOME =================
+     Full-width photo with the text on top.
+     Background photo: assets/images/hero.jpg (set in css/style.css under "Home"). -->
+      <section id="home" class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="hero-eyebrow">
+               R26-IT-087 
+            </p>
+            <h1>
+              An AI-Based Intelligent<br />Pomegranate Farming<br /><em
+                >System for Yield and Quality</em
+              >
+            </h1>
+           
+            <p class="lead">
+              Pomegranate farmers in Sri Lanka often make decisions without clear information. Our system uses IoT sensors and AI to help them check soil, detect diseases, predict harvest time and grade fruit, all in one mobile app.
+            </p>
+            <div class="hero-actions">
+              <a href="#domain" class="btn btn-cream"
+                >Explore our research &#8599;</a
+              >
+              <a href="#documents" class="hero-link">View documents &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DOMAIN ================= -->
+<section id="domain" class="section">
+  <div class="container">
+    <header class="section-head">
+      <h2>Research Domain</h2>
+    </header>
+ 
+    <!-- ===== Research Domain tabs (click a tab – CSS only) ===== -->
+    <input type="radio" name="dom" id="dom1" class="dt-radio" checked>
+    <input type="radio" name="dom" id="dom2" class="dt-radio">
+    <input type="radio" name="dom" id="dom3" class="dt-radio">
+    <input type="radio" name="dom" id="dom4" class="dt-radio">
+    <input type="radio" name="dom" id="dom5" class="dt-radio">
+    <div class="dt-tabs">
+      <label for="dom1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2"/><path d="M8 7h7M8 11h5"/></svg><span>Literature Survey</span></label>
+      <label for="dom2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg><span>Research Gap</span></label>
+      <label for="dom3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v4M12 17.5v.5"/></svg><span>Research Problem</span></label>
+      <label for="dom4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><span>Research Objectives</span></label>
+      <label for="dom5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><circle cx="19" cy="15" r="3"/></svg><span>Methodology</span></label>
+    </div>
+    <div class="dt-panels">
+      <article class="dt-panel p1">
+        <div class="dt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2"/><path d="M8 7h7M8 11h5"/></svg></div>
+        <div><span class="dt-step"></span><h3>Literature Survey</h3><p>Past studies used CNNs to detect pomegranate diseases and grade fruit, transfer learning to classify growth stages, and IoT sensors to monitor soil and weather.</p><p>Each study solves only <b>one</b> farming task.</p></div>
+      </article>
+      <article class="dt-panel p2">
+        <div class="dt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></div>
+        <div><span class="dt-step"></span><h3>Research Gap</h3><ul class="ticks"><li>No single system covers soil, growth, disease and quality</li><li>Growth-stage studies do not predict harvest time</li><li>Grading studies do not suggest uses for low-quality fruit</li><li>IoT studies monitor only &ndash; no fertilizer or irrigation advice</li></ul></div>
+      </article>
+      <article class="dt-panel p3">
+        <div class="dt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v4M12 17.5v.5"/></svg></div>
+        <div><span class="dt-step"></span><h3>Research Problem</h3><p>Sri Lankan pomegranate farmers <b>guess</b> soil needs, notice diseases <b>late</b>, judge ripeness <b>by eye</b> and grade fruit <b>by hand</b>.</p><p>This leads to wasted resources, crop loss and low-value harvests.</p></div>
+      </article>
+      <article class="dt-panel p4">
+        <div class="dt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+        <div><span class="dt-step"></span><h3>Research Objectives</h3><p><b>Main:</b> one AI and IoT mobile app that supports farmers from soil to harvest.</p><ul class="ticks"><li>Recommend fertilizer and irrigation from soil and weather data</li><li>Detect growth stage and predict harvest time</li><li>Detect diseases, measure severity and suggest treatment</li><li>Grade fruit quality and suggest uses for waste fruit</li></ul></div>
+      </article>
+      <article class="dt-panel p5">
+        <div class="dt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><circle cx="19" cy="15" r="3"/></svg></div>
+        <div><span class="dt-step"></span><h3>Methodology</h3><ol class="num-list"><li><span>1</span><div><b>Data Collection</b> &ndash; field photos, Kaggle &amp; Mendeley datasets, ESP32 soil sensor and Open-Meteo weather</div></li><li><span>2</span><div><b>Pre-processing</b> &ndash; clean, resize to 224&times;224, augment and annotate images</div></li><li><span>3</span><div><b>Model Training</b> &ndash; Random Forest, MobileNetV2 CNN and YOLO, compared with SVM, KNN and ANN</div></li><li><span>4</span><div><b>Integration</b> &ndash; TensorFlow Lite models in a Flutter app; sensor data over Bluetooth</div></li><li><span>5</span><div><b>Evaluation</b> &ndash; accuracy, precision, recall, F1 and mAP on unseen test data</div></li></ol></div>
+      </article>
+    </div>
+
+          <!-- ===== Components (flip cards) =====
+         Front: icon + name. Back (on hover / tap): short explanation.
+         To edit: change the text inside flip-front and flip-back. -->
+          <div id="components" class="components">
+            <h3>Core Components</h3>
+            <div class="comp-grid">
+              <article class="flip" tabindex="0">
+                <div class="flip-inner">
+                  <div class="flip-front">
+                    <span class="flip-num">01</span>
+                    <img
+                      src="assets/images/Growth.png"
+                      alt="Growth Stage Detection"
+                    />
+                    <h4>Growth Stage Detection &amp; Harvest Prediction</h4>
+                    <small>V.Harini</small>
+                  </div>
+                  <div class="flip-back">
+                    <h4>Growth Stage Detection &amp; Harvest Prediction</h4>
+                    <p>
+                      The farmer takes a photo of the fruit, and the system
+                      identifies its growth stage: bud, flower, early fruit,
+                      mid-growth or mature. It then estimates the next stage and
+                      when the fruit will be ready to harvest, with care tips
+                      for each stage.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article class="flip" tabindex="0">
+                <div class="flip-inner">
+                  <div class="flip-front">
+                    <span class="flip-num">02</span>
+                    <img src="assets/images/dis.png" alt="Disease Detection" />
+                    <h4>Disease Detection, Severity &amp; Treatment</h4>
+                    <small>S.Banuja</small>
+                  </div>
+                  <div class="flip-back">
+                    <h4>Disease Detection, Severity &amp; Treatment</h4>
+                    <p>
+                      From a fruit photo, the system detects Bacterial Blight, Anthracnose, Cercospora or Alternaria. It measures how much of the fruit is affected (mild, moderate or severe) and suggests a suitable treatment.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article class="flip" tabindex="0">
+                <div class="flip-inner">
+                  <div class="flip-front">
+                    <span class="flip-num">03</span>
+                    <img
+                      src="assets/images/fru.png"
+                      alt="Fruit Quality Grading"
+                    />
+                    <h4>Fruit Quality Grading &amp; Waste Utilization</h4>
+                    <small>A.Sowmiya</small>
+                  </div>
+                  <div class="flip-back">
+                    <h4>Fruit Quality Grading &amp; Waste Utilization</h4>
+                    <p>
+                      Harvested fruits are graded as High, Medium or Low quality
+                      from a photo. For low-quality fruit, the system finds the
+                      defect (crack, rot, disease or sunburn) and suggests the
+                      best use: sale, juice processing, by-products or
+                      composting, reducing waste.
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <article class="flip" tabindex="0">
+                <div class="flip-inner">
+                  <div class="flip-front">
+                    <span class="flip-num">04</span>
+                    <img src="assets/images/soil.png" alt="Soil Analysis" />
+                    <h4>
+                      Fertilizer Recommendation &amp; Irrigation Prediction
+                    </h4>
+                    <small>T.Kobiram</small>
+                  </div>
+                  <div class="flip-back">
+                    <h4>
+                      Fertilizer Recommendation &amp; Irrigation Prediction
+                    </h4>
+                    <p>
+                      A portable IoT soil sensor reads nitrogen, phosphorus,
+                      potassium, pH, moisture and temperature from the field.
+                      Together with the tree's age and local weather, the app
+                      tells the farmer how much fertilizer is needed and whether
+                      the orchard needs watering.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- ===== End Components ===== -->
+
+          <!-- ===== Technologies (icons + scrolling animation) =====
+         The list is written twice: the second copy (aria-hidden) makes the loop seamless.
+         To add a tool: add one <li> to BOTH lists. Logos load from the devicon CDN (internet needed); YOLO and ESP32 icons are drawn inline. -->
+          <div class="tech">
+            <h3>Technologies Used</h3>
+            <div class="marquee">
+              <ul class="marquee-track">
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/python/python-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Python
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/tensorflow/tensorflow-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/keras/keras-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >TensorFlow / Keras
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/pytorch/pytorch-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >PyTorch
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><svg
+                      width="26"
+                      height="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#008037"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"
+                      />
+                      <circle cx="12" cy="12" r="4" stroke="#cc1521" />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="1"
+                        fill="#cc1521"
+                        stroke="#cc1521"
+                      /></svg></span
+                  >YOLOv8
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/opencv/opencv-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >OpenCV
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/flask/flask-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Flask REST API
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/flutter/flutter-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Flutter
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/firebase/firebase-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Firebase
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><svg
+                      width="26"
+                      height="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#008037"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="6" y="6" width="12" height="12" rx="2" />
+                      <rect
+                        x="9.5"
+                        y="9.5"
+                        width="5"
+                        height="5"
+                        rx="1"
+                        stroke="#cc1521"
+                      />
+                      <path
+                        d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"
+                      /></svg></span
+                  >ESP32 + IoT Sensors
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/googlecolab/googlecolab-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Google Colab
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/git/git-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/github/github-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Git &amp; GitHub
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/html5/html5-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/css3/css3-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >HTML &amp; CSS
+                </li>
+              </ul>
+              <ul class="marquee-track" aria-hidden="true">
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/python/python-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Python
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/tensorflow/tensorflow-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/keras/keras-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >TensorFlow / Keras
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/pytorch/pytorch-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >PyTorch
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><svg
+                      width="26"
+                      height="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#008037"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"
+                      />
+                      <circle cx="12" cy="12" r="4" stroke="#cc1521" />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="1"
+                        fill="#cc1521"
+                        stroke="#cc1521"
+                      /></svg></span
+                  >YOLOv8
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/opencv/opencv-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >OpenCV
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/flask/flask-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Flask REST API
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/flutter/flutter-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Flutter
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/firebase/firebase-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Firebase
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><svg
+                      width="26"
+                      height="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#008037"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="6" y="6" width="12" height="12" rx="2" />
+                      <rect
+                        x="9.5"
+                        y="9.5"
+                        width="5"
+                        height="5"
+                        rx="1"
+                        stroke="#cc1521"
+                      />
+                      <path
+                        d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"
+                      /></svg></span
+                  >ESP32 + IoT Sensors
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/googlecolab/googlecolab-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Google Colab
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/git/git-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/github/github-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >Git &amp; GitHub
+                </li>
+                <li>
+                  <span class="tech-ic"
+                    ><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/html5/html5-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /><img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/css3/css3-original.svg"
+                      alt=""
+                      width="28"
+                      height="28" /></span
+                  >HTML &amp; CSS
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- ===== End Technologies ===== -->
+        </div>
+      </section>
+
+      <!-- ================= MILESTONES ================= -->
+      <section id="milestones" class="section section-alt">
+        <div class="container">
+          <header class="section-head">
+            <h2>Project Milestones</h2>
+          </header>
+
+          <!-- ===== Milestones (zig-zag timeline) =====
+         Cards alternate left / right of the centre line.
+         class="zz-item ... done"  -> completed (green tick, "Completed" pill)
+         class="zz-item ... next"  -> the next one (pulsing red dot, "Up next" pill)
+         class="zz-item ... todo"  -> later (numbered grey dot, "Upcoming" pill)
+         When a milestone is finished: change its class + pill, move "next" to the following one,
+         and update the progress bar width and "x of y completed". -->
+          <div class="ms-progress">
+            <div class="ms-progress-top">
+              <b>Assessment progress</b><span>3 of 7 completed</span>
+            </div>
+            <div class="ms-bar"><span style="width: 43%"></span></div>
+          </div>
+
+          <div class="zz">
+            <div class="zz-item left done">
+              <div class="zz-dot">✓</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">Jan 2026</span>
+                </div>
+                <h4>Topic Assessment &amp; Project Charter</h4>
+                <p>
+                  Submitted the Topic Assessment Form (TAF) and Project Charter
+                  describing the research problem, objectives and task breakdown
+                  among members.
+                </p>
+                <span class="zz-pill done">Completed</span>
+              </div>
+            </div>
+            <div class="zz-item right done">
+              <div class="zz-dot">✓</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">Apr 2026</span
+                  ><span class="zz-marks">12%</span>
+                </div>
+                <h4>Project Proposal (Presentation &amp; Report)</h4>
+                <p>
+                  Presented the proposed research to a panel and submitted group
+                  and individual proposal reports with literature review, gap
+                  analysis and methodology.
+                </p>
+                <span class="zz-pill done">Completed</span>
+              </div>
+            </div>
+            <div class="zz-item left done">
+              <div class="zz-dot">✓</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">May 2026</span
+                  ><span class="zz-marks">15%</span>
+                </div>
+                <h4>Progress Presentation 1</h4>
+                <p>
+                  Evaluation of 50% completion of the proposed system:
+                  datasets, initial models and system design.
+                </p>
+                <span class="zz-pill done">Completed</span>
+              </div>
+            </div>
+            <div class="zz-item right done">
+              <div class="zz-dot">✓</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">Sep 2026</span
+                  ><span class="zz-marks">18%</span>
+                </div>
+                <h4>Progress Presentation 2</h4>
+                <p>
+                  Evaluation of 90% completion with integrated components,
+                  mobile app and test results.
+                </p>
+                <span class="zz-pill done">Completed</span>
+              </div>
+            </div>
+            <div class="zz-item left todo">
+              <div class="zz-dot">5</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">Oct 2026</span
+                  ><span class="zz-marks">10%</span>
+                </div>
+                <h4>Research Paper &amp; Website Assessment</h4>
+                <p>
+                  Submission of the research paper for review and evaluation of
+                  this project website.
+                </p>
+                <span class="zz-pill todo">Upcoming</span>
+              </div>
+            </div>
+            <div class="zz-item right todo">
+              <div class="zz-dot">6</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">Oct 2026</span
+                  ><span class="zz-marks">19%</span>
+                </div>
+                <h4>Final Report Submission</h4>
+                <p>
+                  Final group thesis and individual final reports submitted for
+                  evaluation.
+                </p>
+                <span class="zz-pill todo">Upcoming</span>
+              </div>
+            </div>
+            <div class="zz-item left todo">
+              <div class="zz-dot">7</div>
+              <div class="zz-card">
+                <div class="zz-top">
+                  <span class="zz-date">Oct 2026</span
+                  ><span class="zz-marks">20%</span>
+                </div>
+                <h4>Final Assessment &amp; Viva</h4>
+                <p>
+                  Final presentation and demonstration of the completed product,
+                  followed by an individual viva with the panel.
+                </p>
+                <span class="zz-pill todo">Upcoming</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- ================= DOCUMENTS ================= -->
+      <!--
+        "Paper stack" cards. One card per group, one <li> per document.
+        Drive file ID = the part between /d/ and /view in the share link.
+          View     = https://drive.google.com/file/d/ID/view
+          Download = https://drive.google.com/uc?export=download&id=ID
+        Pending -> when ready, copy an available <li> and change the name + links.
+      -->
+      <section id="documents" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>Project Documents</h2>
+          </header>
+
+          <div class="ds-wrap">
+
+            <!-- ===== Project Management ===== -->
+            <article class="ds-card">
+              <div class="ds-sheet">
+                <header class="ds-head">
+                  <span class="ds-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span>
+                  <h3>Project Management</h3>
+                </header>
+                <ul class="ds-list">
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">TAF</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1u_8ZlPLS86pP6HG_V8qnqDpiHsCNJfiE/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1u_8ZlPLS86pP6HG_V8qnqDpiHsCNJfiE">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Checklist Document 1</span>
+                     <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1hS2iZJ6Bd464RvoBUzPRuSi1sl5eN65x/view?usp=drive_link" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/file/d/1hS2iZJ6Bd464RvoBUzPRuSi1sl5eN65x/view?usp=drive_link">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row pending">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Checklist Document 2</span>
+                   </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- ===== Proposal Documents ===== -->
+            <article class="ds-card">
+              <div class="ds-sheet">
+                <header class="ds-head">
+                  <span class="ds-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 13h6M9 17h6"/></svg></span>
+                  <h3>Proposal Documents</h3>
+                </header>
+                <ul class="ds-list">
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Thishoharini V IT22281296</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1NIInY0se8h4Te-3LIkKn5u2vp_I1LPEK/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1NIInY0se8h4Te-3LIkKn5u2vp_I1LPEK">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Banuja S IT22188304</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1ImIv1-ptctwOTxkeSVjaC91RJxDk9PVC/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1ImIv1-ptctwOTxkeSVjaC91RJxDk9PVC">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Sowmiya A IT22549440</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1qq6EB2KlI4TX9lp25YkO0JmfjPXL0mXG/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1qq6EB2KlI4TX9lp25YkO0JmfjPXL0mXG">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Kobiram T IT22245656</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1h65AtxcCqlKVQwg1EcQouTgx2xbi8NQq/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1h65AtxcCqlKVQwg1EcQouTgx2xbi8NQq">Download</a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- ===== Final Documents ===== -->
+            <article class="ds-card">
+              <div class="ds-sheet">
+                <header class="ds-head">
+                  <span class="ds-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+                  <h3>Final Documents</h3>
+                </header>
+                <ul class="ds-list">
+                  <li class="ds-row pending">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Research Paper</span>
+                    <em class="tag wait">Pending</em>
+                  </li>
+                  <li class="ds-row pending">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">Final Group Thesis</span>
+                    <em class="tag wait">Pending</em>
+                  </li>
+                  <!-- <li class="ds-row">
+                    <span class="ds-ic gdoc">DOC</span>
+                    <span class="ds-name">Kobiram T</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://docs.google.com/document/d/1Ux2Htssq4rnGkD_zIE6oEMbtlX6X_j9wbs7r0Io-ke4/edit" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://docs.google.com/document/d/1Ux2Htssq4rnGkD_zIE6oEMbtlX6X_j9wbs7r0Io-ke4/export?format=pdf">Download</a>
+                    </span>
+                  </li> -->
+                </ul>
+              </div>
+            </article>
+
+            <!-- ===== Presentations =====
+                 id="presentations" keeps the "Presentations" menu link working. -->
+            <article class="ds-card" id="presentations">
+              <div class="ds-sheet">
+                <header class="ds-head">
+                  <span class="ds-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5v4l3.5-2z"/></svg></span>
+                  <h3>Presentations</h3>
+                </header>
+                <ul class="ds-list">
+                  <li class="ds-row">
+                    <span class="ds-ic ppt">PPT</span>
+                    <span class="ds-name">Proposal Presentation</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://docs.google.com/presentation/d/1AnUcnEPMPE9OWkuh6TEo6IyjFjtbjUKZ-9eUMV49gJQ/edit" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://docs.google.com/presentation/d/1AnUcnEPMPE9OWkuh6TEo6IyjFjtbjUKZ-9eUMV49gJQ/export/pptx">Download</a>
+                    </span>
+                  </li>
+                  <!-- PP1: this is the folder link. Put the PP1 slide file link here to also add a Download button. -->
+                  <li class="ds-row">
+                    <span class="ds-ic ppt">PP1</span>
+                    <span class="ds-name">Progress Presentation 1</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://docs.google.com/presentation/d/1FuVREYgMl0wApzA_3NWSIOQO-R7EBUS_/edit?usp=drive_link&ouid=105441154084160209313&rtpof=true&sd=true" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://docs.google.com/presentation/d/1FuVREYgMl0wApzA_3NWSIOQO-R7EBUS_/export/pptx">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic ppt">PP2</span>
+                    <span class="ds-name">Progress Presentation 2</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://docs.google.com/presentation/d/1Ql2K91p_CAx8j_dR-h1ELrQxI8L8YZ1V/edit?usp=drive_link&ouid=105441154084160209313&rtpof=true&sd=true" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://docs.google.com/presentation/d/1Ql2K91p_CAx8j_dR-h1ELrQxI8L8YZ1V/export/pptx">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row pending">
+                    <span class="ds-ic">PPT</span>
+                    <span class="ds-name">Final Presentation</span>
+                    <em class="tag wait">Pending</em>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ABOUT US ================= -->
+      <section id="about" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>The Research Team</h2>
+          </header>
+
+          <!--
+      TEAM PHOTOS FROM GOOGLE DRIVE (Photos folder: https://drive.google.com/drive/folders/1pkdUMFAD_H6oia7iqrlJQPxXKQr2lwtw?usp=sharing)
+      A folder link cannot be used as an image. For each photo:
+        1. Right-click the photo in Drive > Share > "Anyone with the link" > Copy link
+           e.g. https://drive.google.com/file/d/1AbCdEfGh.../view?usp=sharing
+        2. Take the ID between /d/ and /view  ->  1AbCdEfGh...
+        3. Use:  src="https://lh3.googleusercontent.com/d/1AbCdEfGh..."
+    -->
+          <h3 class="group-title center">Supervisors</h3>
+          <div class="team-grid team-sup">
+            <article class="person">
+              <img src="assets/images/supervisor.jpeg" alt="Supervisor photo" />
+              <h4>Ms. Shashika Lokuliyana</h4>
+              <p class="role">Project Supervisor</p>
+              <a href="mailto:supervisor@sliit.lk">shashika.l@sliit.lk</a>
+            </article>
+            <article class="person">
+              <img
+                src="assets/images/co-supervisor.jpeg"
+                alt="Co-supervisor photo"
+              />
+              <h4>Mr. Samadhi Rathnayake</h4>
+              <p class="role">Co-Supervisor</p>
+              <a href="mailto:cosupervisor@sliit.lk">samadhi.r@sliit.lk</a>
+            </article>
+          </div>
+
+          <h3 class="group-title center">Group Members</h3>
+          <div class="team-grid">
+            <article class="person">
+              <img src="assets/images/Harini.jpeg" alt="Member 1 photo" />
+              <h4>Thishoharini Vijayaletchumanan</h4>
+              <p class="id">IT22281296</p>
+              <a href="mailto:it22281296@my.sliit.lk">it22281296@my.sliit.lk</a>
+              <p class="ach">Group Leader</p>
+            </article>
+            <article class="person">
+              <img src="assets/images/Banu.jpeg" alt="Member 2 photo" />
+              <h4>Banuja <br>Sundareswaran</h4>
+              <p class="id">IT22188304</p>
+              <a href="mailto:it22188304@my.sliit.lk">it22188304@my.sliit.lk</a><br>
+              <p class="ach">Member 1</p>
+            </article>
+            <article class="person">
+              <img src="assets/images/Sowmi.jpeg" alt="Member 3 photo" />
+              <h4>Sowmiya <br>Anandarajah</h4>
+              <p class="id">IT22549440</p>
+              <a href="mailto:it22549440@my.sliit.lk">it22549440@my.sliit.lk</a>
+              <p class="ach">Member 2</p>
+            </article>
+            <article class="person">
+              <img src="assets/images/Ram.jpeg" alt="Member 4 photo" />
+              <h4>Kobiram <br>Thiyagarajah</h4>
+              <p class="id">IT22245656</p>
+              <a href="mailto:it22245656@my.sliit.lk">it22245656@my.sliit.lk</a><br>
+              <p class="ach">Member 3</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT US ================= -->
+      <!-- White background with a two-part card.
+     The details panel shows assets/images/contact.jpg behind it (class "with-photo"). Remove "with-photo" for plain dark green.
+     Edit email / phone below. Cards are clickable: email opens mail app, phone calls, location opens Google Maps. -->
+      <section id="contact" class="contact-c">
+        <div class="container">
+          <header class="oc-head">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our research team</p>
+            <div class="oc-divider"><span></span><i></i><span></span></div>
+          </header>
+
+          <div class="oc-card">
+            <!-- left: green details panel -->
+            <div class="oc-side with-photo">
+              <h3>Contact details</h3>
+              <a href="mailto:pomegranatefruit590@gmail.com"
+                ><span class="oc-ic"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-10 6L2 7" /></svg></span>
+                <div><b>Email</b>pomegranatefruit590@gmail.com</div></a
+              >
+              <a href="tel:+94778165770"
+                ><span class="oc-ic"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"
+                    /></svg></span>
+                <div><b>Phone</b>+94 77 816 5770</div></a
+              >
+              <a
+                href="https://maps.google.com/?q=SLIIT+Malabe+Campus"
+                target="_blank"
+                rel="noopener"
+                ><span class="oc-ic"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" /></svg></span>
+                <div><b>Location</b>SLIIT, Malabe, Sri Lanka</div></a
+              >
+            </div>
+
+            <!-- right: white form (opens the visitor's mail app – no JavaScript needed) -->
+            <div class="oc-main">
+              <h3>Send us a message</h3>
+              <form
+                class="contact-form"
+                action="mailto:pomegranatefruit590@gmail.com"
+                method="post"
+                enctype="text/plain"
+              >
+                <div class="form-row">
+                  <label
+                    >Your name<input
+                      type="text"
+                      name="Name"
+                      placeholder="Your name"
+                      required
+                  /></label>
+                  <label
+                    >Email address<input
+                      type="email"
+                      name="Email"
+                      placeholder="your-email@example.com"
+                      required
+                  /></label>
+                </div>
+                <label
+                  >Subject<input
+                    type="text"
+                    name="Subject"
+                    placeholder="Subject"
+                /></label>
+                <label
+                  >Message<textarea
+                    name="Message"
+                    rows="5"
+                    placeholder="Your message..."
+                  ></textarea>
+                </label>
+                <button type="submit" class="btn btn-send">
+                  Send Message
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container foot-grid">
+        <div>
+          <a href="#home" class="brand light"
+            ><img src="assets/images/logo.svg" alt="" /><span
+              >Pome<b>Guard</b></span
+            ></a
+          >
+          <p>
+            Healthier orchards, better harvests — smart technology for Sri
+            Lankan pomegranate growers.
+          </p>
+        </div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#domain">Domain</a></li>
+          <li><a href="#milestones">Milestones</a></li>
+          <li><a href="#documents">Documents</a></li>
+        </ul>
+        <ul>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#home">Back to top ↑</a></li>
+        </ul>
+      </div>
+      <p class="copy">© 2026 PomeGuard Research Group · SLIIT</p>
+    </footer>
+  </body>
+</html>
