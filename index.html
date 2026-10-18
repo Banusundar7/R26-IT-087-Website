@@ -17,6 +17,111 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Small additions (use the colours from css/style.css) -->
+    <style>
+      /* Documents: 3 cards in one row (2 on small laptops, 1 on phones) */
+      .ds-wrap.ds-3 { grid-template-columns: repeat(3, 1fr); }
+      @media (max-width: 1100px) { .ds-wrap.ds-3 { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 860px)  { .ds-wrap.ds-3 { grid-template-columns: 1fr; } }
+
+      /* ===== Milestones drop-down (pure CSS) =====
+         Click the box -> list opens. Click an item -> its details show and the list closes. */
+      .msd { max-width: 640px; margin: 0 auto 2.6rem; }
+      .msd-radio { position: absolute; opacity: 0; pointer-events: none; }
+      .msd-select { position: relative; }
+      .msd-btn { display: block; padding: .8rem 2.6rem .8rem 1.1rem; background: var(--paper); border: 1px solid var(--line);
+        border-radius: var(--radius); cursor: pointer; color: var(--ink); position: relative; outline: none; }
+      .msd-btn::after { content: "\25BE"; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+        color: var(--red); transition: transform .2s; }
+      .msd-btn:hover, .msd-select:focus-within .msd-btn { border-color: var(--red); }
+      .msd-select:focus-within .msd-btn::after { transform: translateY(-50%) rotate(180deg); }
+      .msd-cur { display: none; font-weight: 600; color: var(--green-dark); }
+      .msd-list { display: none; list-style: none; margin: .3rem 0 0; padding: .3rem; position: absolute; left: 0; right: 0; z-index: 20;
+        background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+        box-shadow: 0 14px 28px -14px rgba(9, 89, 30, .35); }
+      .msd-select:focus-within .msd-list { display: block; }
+      .msd-list label { display: block; padding: .55rem .8rem; border-radius: var(--radius-sm); cursor: pointer; color: var(--ink); outline: none; }
+      .msd-list label:hover { background: var(--red-soft); color: var(--red); }
+      .msd-panels { margin-top: 1rem; }
+      .msd-panel { display: none; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--red);
+        border-radius: var(--radius); padding: 1.1rem 1.3rem; }
+      .msd:has(#ms-proposal:checked) label[for=ms-proposal],
+      .msd:has(#ms-pp1:checked) label[for=ms-pp1],
+      .msd:has(#ms-pp2:checked) label[for=ms-pp2],
+      .msd:has(#ms-website:checked) label[for=ms-website],
+      .msd:has(#ms-final:checked) label[for=ms-final],
+      .msd:has(#ms-logbook:checked) label[for=ms-logbook],
+      .msd:has(#ms-paper:checked) label[for=ms-paper],
+      .msd:has(#ms-thesis:checked) label[for=ms-thesis] { background: var(--sand); color: var(--green); font-weight: 600; }
+      #ms-proposal:checked ~ .msd-select .cur-proposal, #ms-proposal:checked ~ .msd-panels .p-proposal,
+      #ms-pp1:checked ~ .msd-select .cur-pp1, #ms-pp1:checked ~ .msd-panels .p-pp1,
+      #ms-pp2:checked ~ .msd-select .cur-pp2, #ms-pp2:checked ~ .msd-panels .p-pp2,
+      #ms-website:checked ~ .msd-select .cur-website, #ms-website:checked ~ .msd-panels .p-website,
+      #ms-final:checked ~ .msd-select .cur-final, #ms-final:checked ~ .msd-panels .p-final,
+      #ms-logbook:checked ~ .msd-select .cur-logbook, #ms-logbook:checked ~ .msd-panels .p-logbook,
+      #ms-paper:checked ~ .msd-select .cur-paper, #ms-paper:checked ~ .msd-panels .p-paper,
+      #ms-thesis:checked ~ .msd-select .cur-thesis, #ms-thesis:checked ~ .msd-panels .p-thesis { display: block; }
+      .msd-panel header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+      .msd-panel h4 { margin: 0; color: var(--green-dark); }
+      .msd-marks { background: var(--red-soft); color: var(--red); font-weight: 700; padding: .15rem .6rem; border-radius: 999px; white-space: nowrap; }
+      .msd-date { color: var(--red); font-weight: 600; font-size: .9rem; margin: .4rem 0; }
+      .msd-desc { text-align: justify; margin: 0 0 .7rem; }
+      .msd-status { display: inline-block; margin: 0; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+        padding: .2rem .65rem; border-radius: 999px; border: 1px solid var(--line); background: var(--sand); color: var(--muted); }
+      .msd-status.done { background: var(--sage-soft); color: var(--green); border-color: var(--line-green); }
+      .msd-status.next { background: var(--red-soft); color: var(--red); border-color: rgba(204, 21, 33, .3); }
+      /* ===== Top-right icons: GitHub + dark mode ===== */
+      .nav-actions { display: flex; align-items: center; gap: .4rem; margin-left: .6rem; }
+      .icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
+        border: 1px solid var(--line); color: var(--ink); background: var(--paper); cursor: pointer; transition: .2s; }
+      .icon-btn:hover { color: var(--red); border-color: var(--red); background: var(--red-soft); }
+      .icon-btn svg { width: 19px; height: 19px; }
+      .theme-toggle { position: absolute; opacity: 0; pointer-events: none; }
+      .theme-toggle:focus-visible + .icon-btn { outline: 2px solid var(--red); outline-offset: 2px; }
+      .icon-btn .ic-sun { display: none; }
+      .theme-toggle:checked + .icon-btn .ic-moon { display: none; }
+      .theme-toggle:checked + .icon-btn .ic-sun { display: block; }
+      @media (max-width: 860px) {
+        .nav-actions { margin-left: auto; margin-right: .3rem; order: 2; }
+        .nav-burger { order: 3; }
+      }
+
+      /* ===== Dark mode (switched on by the moon button) ===== */
+      html:has(#theme-toggle:checked) {
+        color-scheme: dark;
+        --red:        #e5323d;
+        --red-2:      #ff5a63;
+        --red-soft:   #3a1a1c;
+        --green:      #46b874;
+        --green-2:    #2f9a55;
+        --cream:      #0f1712;
+        --paper:      #17221b;
+        --sand:       #131d16;
+        --sage:       #1d2e22;
+        --sage-soft:  #213528;
+        --input-bg:   #1b271f;
+        --footer-bg:  #0b1a0f;
+        --ink:        #e6ece4;
+        --muted:      #a5afa1;
+        --line:       #2b3a2f;
+        --line-green: #3f7a48;
+        --ok-bg:      #213528;
+        --wait-bg:    #3a301a;
+        --wait:       #e5ad4f;
+        --disabled:   #4b564d;
+        --num:        #26372b;
+      }
+      html:has(#theme-toggle:checked) body { background: var(--cream); color: var(--ink); }
+      html:has(#theme-toggle:checked) .site-header { background: rgba(15, 23, 18, .94); }
+      html:has(#theme-toggle:checked) :is(.card, .ms-progress, .zz-dot, .zz-card, .contact-c, .oc-main) { background: var(--paper); }
+      html:has(#theme-toggle:checked) .zz-card::after { background: var(--paper); }
+      html:has(#theme-toggle:checked) :is(.oc-main h3, .msd-cur, .msd-panel h4) { color: var(--green); }
+      html:has(#theme-toggle:checked) .nav-burger span,
+      html:has(#theme-toggle:checked) .nav-burger span::before,
+      html:has(#theme-toggle:checked) .nav-burger span::after { background: var(--ink); }
+      html:has(#theme-toggle:checked) .nav-toggle:checked + .nav-burger span { background: transparent; }
+      html:has(#theme-toggle:checked) :is(input, textarea) { color: var(--ink); }
+    </style>
   </head>
   <body>
     <!-- ================= HEADER / NAVIGATION ================= -->
@@ -44,6 +149,14 @@
             <li><a href="#contact" class="nav-cta">Contact Us</a></li>
           </ul>
         </nav>
+
+        <!-- Top-right: GitHub repository + dark / light mode (pure CSS, no JavaScript) -->
+        <div class="nav-actions">
+          <a class="icon-btn" href="https://github.com/HariniVJ/R26-IT-087" target="_blank" rel="noopener"
+             aria-label="Project GitHub repository" title="Project GitHub repository"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+          <input type="checkbox" id="theme-toggle" class="theme-toggle" />
+          <label for="theme-toggle" class="icon-btn" aria-label="Switch dark / light mode" title="Dark / light mode"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></label>
+        </div>
       </div>
     </header>
 
@@ -548,129 +661,155 @@
             <h2>Project Milestones</h2>
           </header>
 
-          <!-- ===== Milestones (zig-zag timeline) =====
-         Cards alternate left / right of the centre line.
-         class="zz-item ... done"  -> completed (green tick, "Completed" pill)
-         class="zz-item ... next"  -> the next one (pulsing red dot, "Up next" pill)
-         class="zz-item ... todo"  -> later (numbered grey dot, "Upcoming" pill)
-         When a milestone is finished: change its class + pill, move "next" to the following one,
-         and update the progress bar width and "x of y completed". -->
-          <div class="ms-progress">
-            <div class="ms-progress-top">
-              <b>Assessment progress</b><span>3 of 7 completed</span>
+          <!-- ===== Milestones drop-down (pure HTML + CSS, no JavaScript) =====
+               One hidden radio per assessment. Click an item in the list to see
+               its date, marks, short description and status. Total marks = 100%. -->
+          <div class="msd">
+            <input type="radio" name="ms-pick" id="ms-proposal" class="msd-radio" checked />
+            <input type="radio" name="ms-pick" id="ms-pp1" class="msd-radio" />
+            <input type="radio" name="ms-pick" id="ms-pp2" class="msd-radio" />
+            <input type="radio" name="ms-pick" id="ms-website" class="msd-radio" />
+            <input type="radio" name="ms-pick" id="ms-final" class="msd-radio" />
+            <input type="radio" name="ms-pick" id="ms-logbook" class="msd-radio" />
+            <input type="radio" name="ms-pick" id="ms-paper" class="msd-radio" />
+            <input type="radio" name="ms-pick" id="ms-thesis" class="msd-radio" />
+
+            <div class="msd-select">
+              <span class="msd-btn" tabindex="0" role="button" aria-haspopup="listbox">
+                <span class="msd-cur cur-proposal">Project Proposal</span>
+                <span class="msd-cur cur-pp1">Progress Presentation 1</span>
+                <span class="msd-cur cur-pp2">Progress Presentation 2</span>
+                <span class="msd-cur cur-website">Draft Thesis &amp; Website</span>
+                <span class="msd-cur cur-final">Final Presentation &amp; Viva</span>
+                <span class="msd-cur cur-logbook">Research Logbook &amp; Status Documents 1 &amp; 2</span>
+                <span class="msd-cur cur-paper">Research Paper (published)</span>
+                <span class="msd-cur cur-thesis">Final Thesis / Final Report</span>
+              </span>
+              <ul class="msd-list" role="listbox">
+                <li><label for="ms-proposal" tabindex="-1">Project Proposal</label></li>
+                <li><label for="ms-pp1" tabindex="-1">Progress Presentation 1</label></li>
+                <li><label for="ms-pp2" tabindex="-1">Progress Presentation 2</label></li>
+                <li><label for="ms-website" tabindex="-1">Draft Thesis &amp; Website</label></li>
+                <li><label for="ms-final" tabindex="-1">Final Presentation &amp; Viva</label></li>
+                <li><label for="ms-logbook" tabindex="-1">Research Logbook &amp; Status Documents 1 &amp; 2</label></li>
+                <li><label for="ms-paper" tabindex="-1">Research Paper (published)</label></li>
+                <li><label for="ms-thesis" tabindex="-1">Final Thesis / Final Report</label></li>
+              </ul>
             </div>
-            <div class="ms-bar"><span style="width: 43%"></span></div>
+
+            <div class="msd-panels">
+              <article class="msd-panel p-proposal">
+                <header><h4>Project Proposal</h4><span class="msd-marks">12%</span></header>
+                <p class="msd-date">Report: 15 Mar 2026 · Presentation: 16–18 Mar 2026</p>
+                <p class="msd-desc">Proposal report and panel presentation covering the literature review, research gap, objectives and methodology.</p>
+                <p class="msd-status done">Completed</p>
+              </article>
+              <article class="msd-panel p-pp1">
+                <header><h4>Progress Presentation 1</h4><span class="msd-marks">15%</span></header>
+                <p class="msd-date">11–13 May 2026 · Check list: 13 May 2026</p>
+                <p class="msd-desc">Evaluation of about 50% completion: datasets, first models and system design.</p>
+                <p class="msd-status done">Completed</p>
+              </article>
+              <article class="msd-panel p-pp2">
+                <header><h4>Progress Presentation 2</h4><span class="msd-marks">18%</span></header>
+                <p class="msd-date">31 Aug – 2 Sep 2026</p>
+                <p class="msd-desc">Evaluation of about 90% completion: integrated components, mobile app and test results.</p>
+                <p class="msd-status done">Completed</p>
+              </article>
+              <article class="msd-panel p-website">
+                <header><h4>Draft Thesis &amp; Website</h4><span class="msd-marks">2%</span></header>
+                <p class="msd-date">Submission: 11 Oct 2026 · Evaluation: 19–21 Oct 2026</p>
+                <p class="msd-desc">Draft thesis and this project website submitted. Final check list submitted on 14 October.</p>
+                <p class="msd-status done">Completed</p>
+              </article>
+              <article class="msd-panel p-final">
+                <header><h4>Final Presentation &amp; Viva</h4><span class="msd-marks">20%</span></header>
+                <p class="msd-date">19–21 Oct 2026</p>
+                <p class="msd-desc">Final presentation and demonstration of the completed product, followed by an individual viva with the panel.</p>
+                <p class="msd-status next">Up next</p>
+              </article>
+              <article class="msd-panel p-logbook">
+                <header><h4>Research Logbook &amp; Status Documents 1 &amp; 2</h4><span class="msd-marks">4%</span></header>
+                <p class="msd-date">19–21 Oct 2026</p>
+                <p class="msd-desc">Research logbook and status documents submitted with the website evaluation.</p>
+                <p class="msd-status next">Up next</p>
+              </article>
+              <article class="msd-panel p-paper">
+                <header><h4>Research Paper (published)</h4><span class="msd-marks">10%</span></header>
+                <p class="msd-date">Submission: 22 Oct 2026 · Publication evidence: 1 Dec 2026</p>
+                <p class="msd-desc">Research paper submitted for publication; proof of publication submitted later.</p>
+                <p class="msd-status">Upcoming</p>
+              </article>
+              <article class="msd-panel p-thesis">
+                <header><h4>Final Thesis / Final Report</h4><span class="msd-marks">19%</span></header>
+                <p class="msd-date">28 Oct 2026</p>
+                <p class="msd-desc">Final group thesis and the four individual final reports submitted for evaluation.</p>
+                <p class="msd-status">Upcoming</p>
+              </article>
+            </div>
           </div>
 
+          <!-- ===== Milestones timeline (zig-zag) =====
+               Each card: date, marks, heading and status only.
+               done = green tick "Completed" | next = "Up next" | todo = numbered "Upcoming" -->
           <div class="zz">
             <div class="zz-item left done">
               <div class="zz-dot">✓</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">Jan 2026</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">Jan 2026</span></div>
                 <h4>Topic Assessment &amp; Project Charter</h4>
-                <p>
-                  Submitted the Topic Assessment Form (TAF) and Project Charter
-                  describing the research problem, objectives and task breakdown
-                  among members.
-                </p>
                 <span class="zz-pill done">Completed</span>
               </div>
             </div>
             <div class="zz-item right done">
               <div class="zz-dot">✓</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">Apr 2026</span
-                  ><span class="zz-marks">12%</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">Apr 2026</span><span class="zz-marks">12%</span></div>
                 <h4>Project Proposal (Presentation &amp; Report)</h4>
-                <p>
-                  Presented the proposed research to a panel and submitted group
-                  and individual proposal reports with literature review, gap
-                  analysis and methodology.
-                </p>
                 <span class="zz-pill done">Completed</span>
               </div>
             </div>
             <div class="zz-item left done">
               <div class="zz-dot">✓</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">May 2026</span
-                  ><span class="zz-marks">15%</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">May 2026</span><span class="zz-marks">15%</span></div>
                 <h4>Progress Presentation 1</h4>
-                <p>
-                  Evaluation of 50% completion of the proposed system:
-                  datasets, initial models and system design.
-                </p>
                 <span class="zz-pill done">Completed</span>
               </div>
             </div>
             <div class="zz-item right done">
               <div class="zz-dot">✓</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">Sep 2026</span
-                  ><span class="zz-marks">18%</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">Sep 2026</span><span class="zz-marks">18%</span></div>
                 <h4>Progress Presentation 2</h4>
-                <p>
-                  Evaluation of 90% completion with integrated components,
-                  mobile app and test results.
-                </p>
                 <span class="zz-pill done">Completed</span>
               </div>
             </div>
             <div class="zz-item left todo">
               <div class="zz-dot">5</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">Oct 2026</span
-                  ><span class="zz-marks">10%</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">Oct 2026</span><span class="zz-marks">10%</span></div>
                 <h4>Research Paper &amp; Website Assessment</h4>
-                <p>
-                  Submission of the research paper for review and evaluation of
-                  this project website.
-                </p>
                 <span class="zz-pill todo">Upcoming</span>
               </div>
             </div>
             <div class="zz-item right todo">
               <div class="zz-dot">6</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">Oct 2026</span
-                  ><span class="zz-marks">19%</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">Oct 2026</span><span class="zz-marks">19%</span></div>
                 <h4>Final Report Submission</h4>
-                <p>
-                  Final group thesis and individual final reports submitted for
-                  evaluation.
-                </p>
                 <span class="zz-pill todo">Upcoming</span>
               </div>
             </div>
             <div class="zz-item left todo">
               <div class="zz-dot">7</div>
               <div class="zz-card">
-                <div class="zz-top">
-                  <span class="zz-date">Oct 2026</span
-                  ><span class="zz-marks">20%</span>
-                </div>
+                <div class="zz-top"><span class="zz-date">Oct 2026</span><span class="zz-marks">20%</span></div>
                 <h4>Final Assessment &amp; Viva</h4>
-                <p>
-                  Final presentation and demonstration of the completed product,
-                  followed by an individual viva with the panel.
-                </p>
                 <span class="zz-pill todo">Upcoming</span>
               </div>
             </div>
           </div>
-          
         </div>
       </section>
 
@@ -688,7 +827,7 @@
             <h2>Project Documents</h2>
           </header>
 
-          <div class="ds-wrap">
+          <div class="ds-wrap ds-3">
 
             <!-- ===== Project Management ===== -->
             <article class="ds-card">
@@ -706,18 +845,32 @@
                       <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1u_8ZlPLS86pP6HG_V8qnqDpiHsCNJfiE">Download</a>
                     </span>
                   </li>
+                  <!-- Project Charter: when the file is ready, copy the TAF row above,
+                       change the name and paste the Drive file ID in both links. -->
                   <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Checklist Document 1</span>
-                     <span class="ds-btns">
-                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1hS2iZJ6Bd464RvoBUzPRuSi1sl5eN65x/view?usp=drive_link" target="_blank" rel="noopener">View</a>
-                      <a class="ds-btn ds-down" href="https://drive.google.com/file/d/1hS2iZJ6Bd464RvoBUzPRuSi1sl5eN65x/view?usp=drive_link">Download</a>
+                    <span class="ds-name">Project Charter</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1LxnlfCxpkyYN_AMP0JotHBiu3Dq2YUMI/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1LxnlfCxpkyYN_AMP0JotHBiu3Dq2YUMI">Download</a>
                     </span>
                   </li>
-                  <li class="ds-row pending">
+                  <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Checklist Document 2</span>
-                   </li>
+                    <span class="ds-name">Checklist 1</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1hS2iZJ6Bd464RvoBUzPRuSi1sl5eN65x/view?usp=drive_link" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1hS2iZJ6Bd464RvoBUzPRuSi1sl5eN65x">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">XLS</span>
+                    <span class="ds-name">Checklist 2</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://docs.google.com/spreadsheets/d/1qg7dYhxcilUvm-R24OorlBYYd1gEo8J4/edit?usp=sharing" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://docs.google.com/spreadsheets/d/1qg7dYhxcilUvm-R24OorlBYYd1gEo8J4/export?format=xlsx">Download</a>
+                    </span>
+                  </li>
                 </ul>
               </div>
             </article>
@@ -732,7 +885,7 @@
                 <ul class="ds-list">
                   <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Thishoharini V IT22281296</span>
+                    <span class="ds-name">IT22281296</span>
                     <span class="ds-btns">
                       <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1NIInY0se8h4Te-3LIkKn5u2vp_I1LPEK/view" target="_blank" rel="noopener">View</a>
                       <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1NIInY0se8h4Te-3LIkKn5u2vp_I1LPEK">Download</a>
@@ -740,7 +893,7 @@
                   </li>
                   <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Banuja S IT22188304</span>
+                    <span class="ds-name">IT22188304</span>
                     <span class="ds-btns">
                       <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1ImIv1-ptctwOTxkeSVjaC91RJxDk9PVC/view" target="_blank" rel="noopener">View</a>
                       <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1ImIv1-ptctwOTxkeSVjaC91RJxDk9PVC">Download</a>
@@ -748,7 +901,7 @@
                   </li>
                   <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Sowmiya A IT22549440</span>
+                    <span class="ds-name">IT22549440</span>
                     <span class="ds-btns">
                       <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1qq6EB2KlI4TX9lp25YkO0JmfjPXL0mXG/view" target="_blank" rel="noopener">View</a>
                       <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1qq6EB2KlI4TX9lp25YkO0JmfjPXL0mXG">Download</a>
@@ -756,7 +909,7 @@
                   </li>
                   <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Kobiram T IT22245656</span>
+                    <span class="ds-name">IT22245656</span>
                     <span class="ds-btns">
                       <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1h65AtxcCqlKVQwg1EcQouTgx2xbi8NQq/view" target="_blank" rel="noopener">View</a>
                       <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1h65AtxcCqlKVQwg1EcQouTgx2xbi8NQq">Download</a>
@@ -774,31 +927,72 @@
                   <h3>Final Documents</h3>
                 </header>
                 <ul class="ds-list">
-                  <li class="ds-row pending">
+                  <!-- Main document -->
+                  <li class="ds-row">
                     <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Research Paper</span>
-                    <em class="tag wait">Pending</em>
-                  </li>
-                  <li class="ds-row pending">
-                    <span class="ds-ic">PDF</span>
-                    <span class="ds-name">Final Group Thesis</span>
-                    <em class="tag wait">Pending</em>
-                  </li>
-                  <!-- <li class="ds-row">
-                    <span class="ds-ic gdoc">DOC</span>
-                    <span class="ds-name">Kobiram T</span>
+                    <span class="ds-name">Final Report</span>
                     <span class="ds-btns">
-                      <a class="ds-btn ds-view" href="https://docs.google.com/document/d/1Ux2Htssq4rnGkD_zIE6oEMbtlX6X_j9wbs7r0Io-ke4/edit" target="_blank" rel="noopener">View</a>
-                      <a class="ds-btn ds-down" href="https://docs.google.com/document/d/1Ux2Htssq4rnGkD_zIE6oEMbtlX6X_j9wbs7r0Io-ke4/export?format=pdf">Download</a>
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/11cigoX_HLVvh1S3opLh50VH-elN_2Tex/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=11cigoX_HLVvh1S3opLh50VH-elN_2Tex">Download</a>
                     </span>
-                  </li> -->
+                  </li>
+                  <!-- Individual final reports – when a report is ready, change its
+                       <li class="ds-row pending"> to a normal row with View / Download
+                       links (same as the Proposal Documents rows). -->
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">IT22281296</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1Atp8NkpvhntWqLptqiUJRF__HPovxmlK/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1Atp8NkpvhntWqLptqiUJRF__HPovxmlK">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">IT22188304</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1lvNkUOSAaSgfdxIBKS7I5zV8PJkQ4RHV/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1lvNkUOSAaSgfdxIBKS7I5zV8PJkQ4RHV">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">IT22549440</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/169oRTe35rk1AP2iAeAGMHDM4nbg_x1lq/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=169oRTe35rk1AP2iAeAGMHDM4nbg_x1lq">Download</a>
+                    </span>
+                  </li>
+                  <li class="ds-row">
+                    <span class="ds-ic">PDF</span>
+                    <span class="ds-name">IT22245656</span>
+                    <span class="ds-btns">
+                      <a class="ds-btn ds-view" href="https://drive.google.com/file/d/1J66tq1mQVJOMX3Q8ls8JALgxQwNwZi1i/view" target="_blank" rel="noopener">View</a>
+                      <a class="ds-btn ds-down" href="https://drive.google.com/uc?export=download&amp;id=1J66tq1mQVJOMX3Q8ls8JALgxQwNwZi1i">Download</a>
+                    </span>
+                  </li>
                 </ul>
               </div>
             </article>
 
-            <!-- ===== Presentations =====
-                 id="presentations" keeps the "Presentations" menu link working. -->
-            <article class="ds-card" id="presentations">
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PRESENTATIONS =================
+           Own section so the "Presentations" menu tab opens a separate part of the site.
+           Same card design as Documents; to add the final slides, change the pending
+           <li> to a normal one with View / Download links. -->
+      <section id="presentations" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>Slides of Past Presentations</h2>
+          </header>
+
+          <div class="ds-wrap" style="grid-template-columns: minmax(0, 560px); justify-content: center;">
+
+            <!-- ===== Presentations ===== -->
+            <article class="ds-card">
               <div class="ds-sheet">
                 <header class="ds-head">
                   <span class="ds-head-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M10 8.5v4l3.5-2z"/></svg></span>
@@ -863,7 +1057,7 @@
               <img src="assets/images/supervisor.jpeg" alt="Supervisor photo" />
               <h4>Ms. Shashika Lokuliyana</h4>
               <p class="role">Project Supervisor</p>
-              <a href="mailto:supervisor@sliit.lk">shashika.l@sliit.lk</a>
+              <a href="mailto:shashika.l@sliit.lk">shashika.l@sliit.lk</a>
             </article>
             <article class="person">
               <img
@@ -872,7 +1066,7 @@
               />
               <h4>Mr. Samadhi Rathnayake</h4>
               <p class="role">Co-Supervisor</p>
-              <a href="mailto:cosupervisor@sliit.lk">samadhi.r@sliit.lk</a>
+              <a href="mailto:samadhi.r@sliit.lk">samadhi.r@sliit.lk</a>
             </article>
           </div>
 
